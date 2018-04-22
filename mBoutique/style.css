@@ -1,0 +1,272 @@
+*{
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*navigation menu*/
+.header{
+    height: 72px;
+    background-color: #fffabe;
+    position: relative;
+}
+.icon{
+    margin-top: 20px;
+    margin-left: 70px;
+    display: inline-block;
+    position: absolute;
+}
+nav{
+    position: absolute;
+    display: inline-block;
+    width: 70%;
+    top: 30px;
+    left: 25%;
+}
+
+.navList li{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #515151;
+    display: inline;
+    padding: 0 3%;
+}
+nav ul li:hover, .navItem:hover{
+    color: #d42551;
+    text-decoration : none;
+
+}
+.navItem{
+    text-decoration : none;
+    color : #000000;
+}
+
+/*welcomeInfo area text*/
+.welcomeInfo{
+    margin-top: 50px;
+}
+.imageLeft img{
+    margin-top: 30%;
+    margin-left: 10%;
+}
+.bodytext{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #6a6969;
+}
+.bodytext h2{
+    font-size: 20px;
+    margin: 30px 0;
+}
+.bodytext p{
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/*free samples table*/
+.schedule table{
+    margin-top: 50px;
+    background-color: #fffabe;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #6a6969;
+    display: inline-block;
+    margin-left: 1.25%;
+
+    width: 126px;
+    height: 140px;
+}
+.tableHead {
+    font-size: 14px;
+}
+.schedule table td{
+    width: 126px;
+    height: 33px;
+    padding:0 15px 0 15px;
+    position: relative;
+}
+table img{
+    position: absolute;
+    right: 5px;
+}
+
+.table1 .tableRow3{
+    color: white;
+    background-color: #824603;
+}
+.table3 .tableRow3{
+    color: white;
+    background-color: #df5277;
+}
+.table5 .tableRow3{
+    color: white;
+    background-color: #a2304e;
+}
+.table7 .tableRow3{
+    color: white;
+    background-color: #c39005;
+}
+
+/*footer*/
+footer{
+    max-width: 1000px;
+    height: 80px;
+    background-color: #df5277;
+    color: white;
+    margin-top: 50px;
+    padding-top: 10px;
+}
+footer img{
+    padding: 0 10px;
+}
+
+/*our_macarons Page2*/
+.backgroundImageOurMacs{
+    background-image: url("../assets/images/our-macarons-background.png");
+    margin-bottom: 10px;
+}
+.ourMacaronsAbout{
+    padding: 50px 50px 0 50px;
+}
+.ourMacaronsAbout h2{
+    padding: 10px 0;
+}
+.recommendedEating{
+    margin: 50px 0 0 0;
+}
+
+
+/*gifts and parties*/
+.groupEvents a, .visitUs a {
+    color: #df5277;
+}
+.groupEvents a:hover, .visitUs a:hover {
+    color: #df5277;
+}
+.backgroundImageGifts{
+    margin-top: 50px;
+    background-image: url("../assets/images/gifts-parties-background.png");
+    margin-bottom: 10px;
+    min-height: 600px;
+}
+.groupEvents{
+    padding: 50px 50px 0 50px;
+}
+.partyTower{
+    width: 50%;
+}
+
+/*contact page/non-phone*/
+.threeColumn > *{
+    position: relative;
+    display: inline-block;
+    width: 29.5%;
+    margin-top: 60px;
+    vertical-align: top;
+    margin-bottom: 50px;
+}
+.visitUs {
+    width: 40%;
+    padding: 0 0 0 45px;
+}
+.visitUs h2, .contactForm h2{
+    margin: 50px 0;
+}
+.visitUs p{
+    margin: 0;
+}
+.info2, .info3, .info4, .info5{
+    margin-top: 30px;
+}
+.contactForm{
+    position: relative;
+}
+.data input, .data textarea, .contactForm button{
+    display: block;
+    width: 300px;
+    height: 35px;
+    border: none;
+    background-color: #f5f5f5;
+    margin: 10px 0;
+    padding-left: 5px;
+}
+.data textarea{
+    height: 70px;
+    /*resize: none;*/
+}
+.contactForm button{
+    width: 155px;
+    height: 35px;
+    position: relative;
+    left: 145px;
+    margin-top: 10px;
+}
+.rightImage{
+    position: relative;
+    top: 130px;
+    left: 50px;
+}
+
+/*contact page*/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    *{
+        max-width: 375px;
+    }
+    body{
+        width: 375px;
+    }
+    /*top and nav*/
+    .header{
+        position: relative;
+    }
+    .icon{
+        position: absolute;
+        margin: 0;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    nav{
+        position: relative;
+        width: 100%;
+        top: 60%;
+        left: 2.5%;
+    }
+    .navList{
+        padding: 0;
+    }
+    .navItem{
+        font-size: 0.6em;
+    }
+
+
+    /*middle text*/
+    .threeColumn > *{
+        width: 100%;
+        padding: 0 10px 0 40px;
+        margin: 25px 0 0 0;
+    }
+    .visitUs h2{
+        margin: 25px 0;
+    }
+
+    /*contact form*/
+    .rightImage{
+        display: none;
+    }
+
+    /*footer*/
+    .footerInfo{
+        width: 375px;
+        font-size: 0.8em;
+    }
+    .email, .phone, .socialMedia{
+        left: 10%;
+        padding: 0;
+    }
+    .socialMedia{
+        left: 60%;
+        transform: translate(-50%, 0);
+    }
+}

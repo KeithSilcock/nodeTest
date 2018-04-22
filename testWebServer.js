@@ -4,6 +4,7 @@ const students = [
     { name: 'Scott', course: 'English', grade: 80 },
     { name: 'Arnold', course: 'Robotics', grade: 98 },
 ];
+var currentID = 0;
 //remember to install express and body-parser
 const express = require('express');
 const bodyParser = require('body-parser');  //used to grab data from post bodies
@@ -16,24 +17,40 @@ webserver.use(bodyParser.json());
 
 webserver.use( express.static( __dirname + '/html') );
 
-webserver.get('/students', function(req, res){
-    // console.log(req)
-    //
-    // console.log(res)
+function initServer(){
+    initializeStudentIds(students);
+}
+initServer();
 
-    console.log(req.query)
-    if(req.query.command==='create'){
-        res.send(bodyParser.json(students))
+function initializeStudentIds(arrayOfStudents) {
+    for(let studentIndex in arrayOfStudents){
+        addStudentIds(arrayOfStudents[studentIndex])
     }
+    return arrayOfStudents;
+}
 
+function addStudentIds(studentObj) {
+    studentObj.id=currentID++;
+}
 
-    //get all students and return them here
-    //get all students from the global student variable
-    //convert to json
-    //output that data in a way that your SGT will understand (look at what our SGT backend did)
+webserver.use(function (req, res, next) {
+    next();
+})
+
+webserver.get('/students/get', function(req, res){
+    let serverPacket = {
+        'success':true,
+        data:students,
+    };
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+    res.send(serverPacket);
 });
 //notice that this is a post request, not a get request
-webserver.post('/students', function(req, res){
+webserver.post('/students/create', function(req, res){
+
+    console.log(req.body);
+
     //create a student here.
     //get data from the post data
     //	https://www.npmjs.com/package/body-parser

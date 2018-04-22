@@ -55,10 +55,10 @@ function handleDataFromServer(dataObj) {
 function getDataFromServer() {
     var ajaxArgs = {
         'dataType': 'json',
-        'url': 'https://s-apis.learningfuze.com/sgt/get',
-        'method': 'POST',
+        'url': 'http://localhost:3000/students/get',
+        'method': 'GET',
         'data': {
-            'api_key': 'T5a2qipvnG',
+            // 'api_key': 'T5a2qipvnG',
         },
         'success':function (result) {
             console.log(result);
@@ -80,10 +80,10 @@ function getDataFromServer() {
 function addStudentToServer(studentToSend) {
     var ajaxArgs = {
         'dataType': 'json',
-        'url': 'https://s-apis.learningfuze.com/sgt/create',
+        'url': 'http://localhost:3000/students/create',
         'method': 'POST',
         'data': {
-            'api_key': 'T5a2qipvnG',
+            // 'api_key': 'T5a2qipvnG',
             name: studentToSend.name,
             course: studentToSend.course,
             grade: studentToSend.grade,

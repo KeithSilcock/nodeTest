@@ -31,9 +31,11 @@ class StudentGradeTableClient{
             'api_key': 'T5a2qipvnG',
             // 'force-failure':'timeout',
         };
+        let method='GET';
         let successFunc=null;
         if(argsToServer.command==='getData') {
-            url = 'http://localhost:3000/students?command=create';
+            url = 'http://localhost:3000/students/get';
+            method = 'GET';
             successFunc = function (response) {
                 this.successGetStudentList(response.data);
             }
@@ -54,7 +56,7 @@ class StudentGradeTableClient{
                 this.successDeleteStudent(argsToServer.studentIndex, argsToServer.rowToDelete);
             }
         }
-        let error = this.serverConnection.reachOutToServer(url, data, successFunc.bind(this));
+        let error = this.serverConnection.reachOutToServer(url, data, method, successFunc.bind(this));
         if(error){
             this.handleError(error);
         }
@@ -71,6 +73,7 @@ class StudentGradeTableClient{
         this.interactWithServer(argsToServer);
     }
     successGetStudentList(newStudentArray){
+        console.log(newStudentArray)
         this.setWaitingCursor(false);
         this.updateStudentList(newStudentArray);
     }
@@ -352,12 +355,12 @@ class AjaxServerRequester{
         this.errorCallback=errorCallBack;
     }
 
-    reachOutToServer(url, data, successFunction) {
+    reachOutToServer(url, data, method, successFunction) {
         let ajaxArgs = {
             'dataType': this.dataType,
             'url': url,
-            'method': this.method,
-            'data':data
+            'method': method,
+            'data':data,
         };
         ajaxArgs.success = this.onServerSuccess(successFunction).bind(this);
         ajaxArgs.error = this.handleServerError.bind(this);

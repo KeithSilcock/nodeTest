@@ -22,7 +22,7 @@ webserver.get('/students', function(req, res){
     // console.log(res)
 
     console.log(req.query)
-    if(req.query.command==='Create'){
+    if(req.query.command==='create'){
         res.send(bodyParser.json(students))
     }
 

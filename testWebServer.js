@@ -51,6 +51,22 @@ webserver.post('/students/create', function(req, res){
 
     console.log(req.body);
 
+    let {name, course, grade} = req.body;
+
+
+    let newStudentObj = {name, course, grade};
+    addStudentIds(newStudentObj);
+
+    students.push(newStudentObj);
+
+    let serverPacket = {
+        'success':true,
+        'new_id':newStudentObj.id,
+    }
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+    res.send(serverPacket)
+
     //create a student here.
     //get data from the post data
     //	https://www.npmjs.com/package/body-parser

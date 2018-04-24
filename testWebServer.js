@@ -76,7 +76,24 @@ webserver.post('/students/create', function(req, res){
 });
 
 //notice this is a delete request, not a get or post request
-webserver.delete('/students', function(req, res){
+webserver.post('/students/delete', function(req, res){
+
+    let studentIdToDelete = req.body.student_id;
+    let deletedStudent=null;
+    for(let studentIndex in students){
+        if(students[studentIndex].id === parseInt(studentIdToDelete)){
+            deletedStudent=students.splice(studentIndex,1);
+        }
+    }
+
+
+    let serverPacket = {
+        success:true,
+        studentDeleted: deletedStudent,
+    };
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:63342');
+    res.send(serverPacket)
+
     //delete a student here
     //get the ID from the post data
     //delete the item from the array

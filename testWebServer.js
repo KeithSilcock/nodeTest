@@ -7,7 +7,7 @@ const students = [
 var currentID = 0;
 //remember to install express and body-parser
 const express = require('express');
-const bodyParser = require('body-parser');  //used to grab data from post bodies
+const bodyParser = require('body-parser');  //used to grab listData from post bodies
 
 const webserver = express();
 webserver.use(bodyParser.urlencoded({ extended: false }));
@@ -35,7 +35,7 @@ function addStudentIds(studentObj) {
 
 webserver.use(function (req, res, next) {
     next();
-})
+});
 
 webserver.get('/students/get', function(req, res){
     let serverPacket = {
@@ -68,10 +68,10 @@ webserver.post('/students/create', function(req, res){
     res.send(serverPacket)
 
     //create a student here.
-    //get data from the post data
+    //get listData from the post listData
     //	https://www.npmjs.com/package/body-parser
     //req.body.DATAYOUWANT
-    //use that data from the post data to make new object
+    //use that listData from the post listData to make new object
     //add the object to the array
 });
 
@@ -95,10 +95,10 @@ webserver.post('/students/delete', function(req, res){
     res.send(serverPacket)
 
     //delete a student here
-    //get the ID from the post data
+    //get the ID from the post listData
     //delete the item from the array
     //return true if you deleted it
-    //remember your SGT was expecting data like from our server
+    //remember your SGT was expecting listData like from our server
 });
 
 

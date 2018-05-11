@@ -16,7 +16,7 @@ class StudentGradeTableClient{
     addClickHandlersToElements(){
         $('.addButton').on('click', this.handleAddClicked.bind(this));
         $('.clearButton').on('click', this.handleCancelClick.bind(this));
-        $('[data-sort]').on('click', this.sortTable.bind(this));
+        $('[listData-sort]').on('click', this.sortTable.bind(this));
         $(".getDataButton").on('click', this.handleGetStudentList.bind(this));
 
         $('#course').on({

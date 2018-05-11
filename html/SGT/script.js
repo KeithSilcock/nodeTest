@@ -113,7 +113,7 @@ function addStudentToServer(studentToSend) {
 function deleteStudentFromSever(studentToDelete, index, rowToDelete) {
     var ajaxArgs = {
         'dataType': 'json',
-        'url': 'https://s-apis.learningfuze.com/sgt/delete',
+        'url': 'http://localhost:3000/students/delete',
         'method': 'POST',
         'data': {
             'api_key': 'T5a2qipvnG',
